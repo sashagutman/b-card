@@ -27,7 +27,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         const decoded: DecodedToken = decodeToken(token);
         businessStatus = decoded.isBusiness === true;
 
-        // Получаем URL аватарки
         getUserById(decoded._id)
           .then((res) => {
             setProfileImage(res.data.image?.url || null);
